@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-"""Base module"""
+"""
+Base module
+"""
+
+
 import uuid
 from datetime import datetime
 
@@ -9,12 +13,12 @@ class BaseModel:
     Base class for all other classes in the project.
     """
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """
         Constructor for Base class.
         """
 
-        if kwargs:
+        if kwargs and len(kwargs) > 0:
             if "__class__" in kwargs:
                 del kwargs["__class__"]
             for key, value in kwargs.items():
