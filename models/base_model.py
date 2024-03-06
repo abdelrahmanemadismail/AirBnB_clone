@@ -6,7 +6,6 @@ Base module
 
 import uuid
 from datetime import datetime
-from models import storage
 
 class BaseModel:
     """
@@ -17,6 +16,8 @@ class BaseModel:
         """
         Constructor for Base class.
         """
+
+        from models import storage
 
         if kwargs and len(kwargs) > 0:
             if "__class__" in kwargs:

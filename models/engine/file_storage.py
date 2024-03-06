@@ -5,7 +5,7 @@ File Storage
 
 
 import json
-
+from models.base_model import BaseModel
 
 class FileStorage:
     """
