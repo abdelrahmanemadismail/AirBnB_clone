@@ -3,11 +3,13 @@
 Unit tests for BaseModel class
 """
 
+
 import pep8
 import unittest
 import io
 import sys
 from models.base_model import BaseModel
+from models import storage
 
 
 class TestBase(unittest.TestCase):

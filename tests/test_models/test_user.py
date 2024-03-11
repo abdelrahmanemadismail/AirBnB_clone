@@ -6,7 +6,7 @@ Unit tests for User class
 import pep8
 import unittest
 from models.user import User
-
+from models.base_model import BaseModel
 
 class TestUser(unittest.TestCase):
     """

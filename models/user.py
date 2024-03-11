@@ -3,7 +3,9 @@
 User module
 """
 
+
 from models.base_model import BaseModel
+
 
 class User(BaseModel):
     """
@@ -19,4 +21,3 @@ class User(BaseModel):
         self.password = kwargs.get('password', "")
         self.first_name = kwargs.get('first_name', "")
         self.last_name = kwargs.get('last_name', "")
-
