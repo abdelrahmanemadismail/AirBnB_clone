@@ -3,7 +3,9 @@
 State module
 """
 
+
 from models.base_model import BaseModel
+
 
 class State(BaseModel):
     """
@@ -14,5 +16,5 @@ class State(BaseModel):
         """
         Constructor for State class.
         """
+        self.name = kwargs.pop('name', "")
         super().__init__(*args, **kwargs)
-        self.name = kwargs.get('name', "")

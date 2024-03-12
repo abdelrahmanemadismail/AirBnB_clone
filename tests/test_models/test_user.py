@@ -23,7 +23,6 @@ class TestUser(unittest.TestCase):
         pep8style = pep8.StyleGuide(quiet=True)
         result = pep8style.check_files(['models/user.py'])
         self.assertEqual(result.total_errors, 0)
-        print(storage.all())
 
     def test_user_instance(self):
         """
@@ -83,7 +82,6 @@ class TestUser(unittest.TestCase):
         user_id = user.id
         del user
         storage.reload()
-        print(storage.all())
         reloaded_user = storage.all()["User." + user_id]
         self.assertEqual(reloaded_user.email, "test@example.com")
         self.assertEqual(reloaded_user.password, "password")

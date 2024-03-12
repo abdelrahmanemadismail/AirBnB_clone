@@ -3,7 +3,9 @@
 Place module
 """
 
+
 from models.base_model import BaseModel
+
 
 class Place(BaseModel):
     """
@@ -14,15 +16,15 @@ class Place(BaseModel):
         """
         Constructor for Place class.
         """
+        self.city_id = kwargs.pop('city_id', "")
+        self.user_id = kwargs.pop('user_id', "")
+        self.name = kwargs.pop('name', "")
+        self.description = kwargs.pop('description', "")
+        self.number_rooms = kwargs.pop('number_rooms', 0)
+        self.number_bathrooms = kwargs.pop('number_bathrooms', 0)
+        self.max_guest = kwargs.pop('max_guest', 0)
+        self.price_by_night = kwargs.pop('price_by_night', 0)
+        self.latitude = kwargs.pop('latitude', 0.0)
+        self.longitude = kwargs.pop('longitude', 0.0)
+        self.amenity_ids = kwargs.pop('amenity_ids', [])
         super().__init__(*args, **kwargs)
-        self.city_id = kwargs.get('city_id', "")
-        self.user_id = kwargs.get('user_id', "")
-        self.name = kwargs.get('name', "")
-        self.description = kwargs.get('description', "")
-        self.number_rooms = kwargs.get('number_rooms', 0)
-        self.number_bathrooms = kwargs.get('number_bathrooms', 0)
-        self.max_guest = kwargs.get('max_guest', 0)
-        self.price_by_night = kwargs.get('price_by_night', 0)
-        self.latitude = kwargs.get('latitude', 0.0)
-        self.longitude = kwargs.get('longitude', 0.0)
-        self.amenity_ids = kwargs.get('amenity_ids', [])

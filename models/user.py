@@ -16,8 +16,8 @@ class User(BaseModel):
         """
         Constructor for User class.
         """
+        self.email = kwargs.pop('email', "")
+        self.password = kwargs.pop('password', "")
+        self.first_name = kwargs.pop('first_name', "")
+        self.last_name = kwargs.pop('last_name', "")
         super().__init__(*args, **kwargs)
-        self.email = kwargs.get('email', "")
-        self.password = kwargs.get('password', "")
-        self.first_name = kwargs.get('first_name', "")
-        self.last_name = kwargs.get('last_name', "")

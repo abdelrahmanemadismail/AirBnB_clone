@@ -3,7 +3,9 @@
 City module
 """
 
+
 from models.base_model import BaseModel
+
 
 class City(BaseModel):
     """
@@ -14,6 +16,6 @@ class City(BaseModel):
         """
         Constructor for City class.
         """
+        self.state_id = kwargs.pop('state_id', "")
+        self.name = kwargs.pop('name', "")
         super().__init__(*args, **kwargs)
-        self.state_id = kwargs.get('state_id', "")
-        self.name = kwargs.get('name', "")
