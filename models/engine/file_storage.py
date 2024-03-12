@@ -55,12 +55,22 @@ class FileStorage:
         from models.amenity import Amenity
         from models.place import Place
         from models.review import Review
+        classes = {
+                'BaseModel': BaseModel,
+                'User': User,
+                'State': State,
+                'City': City,
+                'Amenity': Amenity,
+                'Place': Place,
+                'Review': Review
+                }
 
         try:
             with open(self.__file_path, 'r') as file:
                 data = json.load(file)
                 for key, value in data.items():
                     class_name, obj_id = key.split('.')
-                    self.__objects[key] = eval(class_name)(**value)
+                    cls = classes[class_name]
+                    self.__objects[key] = cls(**value)
         except FileNotFoundError:
             pass

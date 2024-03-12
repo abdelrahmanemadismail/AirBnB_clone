@@ -9,7 +9,7 @@ import unittest
 import io
 import sys
 from models.base_model import BaseModel
-from models import storage
+from tests.test_models import storage
 
 
 class TestBase(unittest.TestCase):
