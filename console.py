@@ -21,7 +21,15 @@ class HBNBCommand(cmd.Cmd):
     """
 
     prompt = "(hbnb) "
-    classes = ["BaseModel", "User", "State", "City", "Amenity", "Place", "Review"]
+    classes = [
+            "BaseModel",
+            "User",
+            "State",
+            "City",
+            "Amenity",
+            "Place",
+            "Review"
+            ]
 
     def do_quit(self, arg):
         """
@@ -112,11 +120,15 @@ class HBNBCommand(cmd.Cmd):
         elif arg not in self.classes:
             print("** class doesn't exist **")
         else:
-            print([str(obj) for key, obj in storage.all().items() if key.split('.')[0] == arg])
+            print([
+                str(obj)
+                for key, obj in storage.all().items()
+                if key.split('.')[0] == arg
+                ])
 
     def do_update(self, arg):
         """
-        Update an instance based on the class name and id by adding or updating attribute.
+        Update an instance based on class name and id.
 
         Usage: update <class_name> <id> <attribute_name> "<attribute_value>"
         """

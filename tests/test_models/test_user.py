@@ -46,7 +46,12 @@ class TestUser(unittest.TestCase):
         """
         Test initialization with attributes.
         """
-        user = User(email="test@example.com", password="password", first_name="John", last_name="Doe")
+        user = User(
+                email="test@example.com",
+                password="password",
+                first_name="John",
+                last_name="Doe"
+                )
         self.assertEqual(user.email, "test@example.com")
         self.assertEqual(user.password, "password")
         self.assertEqual(user.first_name, "John")
@@ -56,7 +61,12 @@ class TestUser(unittest.TestCase):
         """
         Test conversion to dictionary.
         """
-        user = User(email="test@example.com", password="password", first_name="John", last_name="Doe")
+        user = User(
+                email="test@example.com",
+                password="password",
+                first_name="John",
+                last_name="Doe"
+                )
         user_dict = user.to_dict()
         self.assertEqual(user_dict['email'], "test@example.com")
         self.assertEqual(user_dict['password'], "password")
@@ -77,7 +87,12 @@ class TestUser(unittest.TestCase):
         """
         Test reload method.
         """
-        user = User(email="test@example.com", password="password", first_name="John", last_name="Doe")
+        user = User(
+                email="test@example.com",
+                password="password",
+                first_name="John",
+                last_name="Doe"
+                )
         user.save()
         user_id = user.id
         del user
