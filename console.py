@@ -153,6 +153,31 @@ class HBNBCommand(cmd.Cmd):
                 setattr(obj, args[2], args[3].strip('"'))
                 obj.save()
 
+    def default(self, line):
+        """
+        Override the default method to handle unrecognized commands.
+        """
+        parts = line.split('.')
+        if len(parts) == 2 and parts[1] == 'all()':
+            class_name = parts[0]
+            if class_name in self.classes:
+                instances = storage.all()
+                class_instances = [
+                        str(obj)
+                        for obj in instances.values()
+                        if type(obj).__name__ == class_name
+                        ]
+                print(class_instances)
+            else:
+                print("** class doesn't exist **")
+        else:
+            super().default(line)
+
 
 if __name__ == '__main__':
-    HBNBCommand().cmdloop()
+    import sys
+
+    if len(sys.argv) > 1:
+        HBNBCommand().onecmd(' '.join(sys.argc[1:]))
+    else:
+        HBNBCommand().cmdloop()
