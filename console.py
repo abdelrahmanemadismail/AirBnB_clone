@@ -158,7 +158,7 @@ class HBNBCommand(cmd.Cmd):
         Override the default method to handle unrecognized commands.
         """
         parts = line.split('.')
-        if len(parts) == 2 and parts[1] == 'all()':
+        if len(parts) == 2:
             class_name = parts[0]
             if class_name in self.classes:
                 instances = storage.all()
@@ -167,7 +167,10 @@ class HBNBCommand(cmd.Cmd):
                         for obj in instances.values()
                         if type(obj).__name__ == class_name
                         ]
-                print(class_instances)
+                if parts[1] == 'all()':
+                    print(class_instances)
+                elif parts[1] == 'count()':
+                    print(len(class_instances))
             else:
                 print("** class doesn't exist **")
         else:
