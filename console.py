@@ -172,6 +172,12 @@ class HBNBCommand(cmd.Cmd):
                     print(class_instances)
                 elif method[0] == 'count':
                     print(len(class_instances))
+                elif method[0] == 'show':
+                    if len(method) == 2:
+                        arg = method[1].strip(')').strip('"').strip("'")
+                    else:
+                        arg = None
+                    self.do_show(f"{class_name} {arg}")
             else:
                 print("** class doesn't exist **")
         else:
