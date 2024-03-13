@@ -160,6 +160,7 @@ class HBNBCommand(cmd.Cmd):
         parts = line.split('.')
         if len(parts) == 2:
             class_name = parts[0]
+            method = parts[1].split('(')
             if class_name in self.classes:
                 instances = storage.all()
                 class_instances = [
@@ -167,9 +168,9 @@ class HBNBCommand(cmd.Cmd):
                         for obj in instances.values()
                         if type(obj).__name__ == class_name
                         ]
-                if parts[1] == 'all()':
+                if method[0] == 'all':
                     print(class_instances)
-                elif parts[1] == 'count()':
+                elif method[0] == 'count':
                     print(len(class_instances))
             else:
                 print("** class doesn't exist **")
