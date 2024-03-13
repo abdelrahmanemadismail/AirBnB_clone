@@ -189,8 +189,8 @@ class HBNBCommand(cmd.Cmd):
 
                 elif method[0] == 'update':
                     if len(method) == 2:
-                        arg = method[1].strip(')').strip('"').strip("'").strip(" ")
-                        args = arg.replace(',', ' ')
+                        arg = method[1].strip(')').strip('"').strip("'")
+                        args = arg.strip(" ").replace(',', ' ')
                     else:
                         arg = None
                         args = None
