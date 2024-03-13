@@ -186,6 +186,15 @@ class HBNBCommand(cmd.Cmd):
                     else:
                         arg = None
                     self.do_destroy(f"{class_name} {arg}")
+
+                elif method[0] == 'update':
+                    if len(method) == 2:
+                        arg = method[1].strip(')').strip('"').strip("'").strip(" ")
+                        args = arg.replace(',', ' ')
+                    else:
+                        arg = None
+                        args = None
+                    self.do_update(f"{class_name} {args}")
             else:
                 print("** class doesn't exist **")
         else:
